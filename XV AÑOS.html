@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mis XV años · Sophia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Noto+Serif+SC:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --vino:#4a0a12; --vino-osc:#2a0409; --vino-med:#6b1220;
+  --oro:#e0b878; --oro-osc:#a8782f; --crema:#f6e9d2;
+  --script:'Great Vibes',cursive; --serif:'Cormorant Garamond',serif; --cinzel:'Cinzel',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#1c0206;color:var(--crema);font-family:var(--serif);font-size:18px;line-height:1.55;overflow-x:hidden}
+#petalos{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:50}
+
+/* ===== SOBRE ===== */
+#intro{position:fixed;inset:0;z-index:100;background:radial-gradient(ellipse at center,#5a0e1a 0%,#1c0206 75%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:20px;transition:opacity 1.2s ease,visibility 1.2s}
+#intro.oculto{opacity:0;visibility:hidden}
+.sobre{position:relative;width:min(340px,82vw);aspect-ratio:1.5;cursor:pointer;filter:drop-shadow(0 18px 30px rgba(0,0,0,.6));perspective:900px}
+.sobre .cuerpo{position:absolute;inset:0;background:linear-gradient(160deg,#7a1424,#4a0a12);border:1px solid var(--oro-osc);border-radius:4px;overflow:hidden}
+.sobre .cuerpo::before,.sobre .cuerpo::after{content:"";position:absolute;bottom:0;width:50%;height:100%;background:linear-gradient(160deg,#6b1220,#3d0710)}
+.sobre .cuerpo::before{left:0;clip-path:polygon(0 0,100% 100%,0 100%)}
+.sobre .cuerpo::after{right:0;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.sobre .tapa{position:absolute;top:0;left:0;width:100%;height:58%;background:linear-gradient(180deg,#8a1a2b,#5a0e1a);
+  clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .9s ease;z-index:3;border-top:1px solid var(--oro-osc)}
+.sobre .carta{position:absolute;left:7%;right:7%;top:8%;height:80%;background:var(--crema);z-index:1;transition:transform .9s ease .5s}
+.sello{position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;z-index:4;
+  background:radial-gradient(circle at 35% 30%,#c0243a,#7a0f1f 65%,#4a0710);box-shadow:0 4px 10px rgba(0,0,0,.55),inset 0 0 0 3px rgba(224,184,120,.35);
+  display:grid;place-items:center;font-family:var(--script);font-size:40px;color:var(--oro);text-shadow:0 1px 2px #000;transition:opacity .4s}
+.abierto .tapa{transform:rotateX(180deg);z-index:0}
+.abierto .carta{transform:translateY(-34%)}
+.abierto .sello{opacity:0}
+.sello::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid var(--oro);animation:anillo 1.8s ease-out infinite;pointer-events:none}
+@keyframes anillo{from{transform:scale(.9);opacity:.9}to{transform:scale(1.55);opacity:0}}
+.clic{font-family:var(--cinzel);letter-spacing:.18em;font-size:13px;color:var(--oro);animation:pulso 2.2s ease-in-out infinite}
+@keyframes pulso{50%{opacity:.35}}
+.pergamino{width:min(340px,86vw);text-align:center;padding:26px 24px;color:#3b1a10;
+  background:radial-gradient(ellipse at 20% 15%,#fbf1dc,#ecd5a8 70%,#d9b980);
+  border-radius:6px 14px 8px 12px;box-shadow:0 10px 24px rgba(0,0,0,.55),inset 0 0 28px rgba(120,70,20,.35);position:relative}
+.pergamino::before{content:"";position:absolute;inset:7px;border:1px solid rgba(140,90,30,.55);border-radius:4px;pointer-events:none}
+.pergamino small{display:block;font-family:var(--cinzel);font-size:11px;letter-spacing:.28em;color:#7a4a1a}
+.pergamino .fam{font-family:var(--script);font-size:34px;line-height:1.2;margin:6px 0 4px;color:#5a0e1a}
+.pergamino .pases{font-size:17px;font-style:italic}
+
+/* ===== INVITACIÓN ===== */
+main{max-width:480px;margin:0 auto;position:relative;background:linear-gradient(180deg,var(--vino-osc),#3a060e 40%,var(--vino-osc));
+  border-left:1px solid var(--oro-osc);border-right:1px solid var(--oro-osc);box-shadow:0 0 60px rgba(0,0,0,.7)}
+section{padding:46px 28px;text-align:center;position:relative}
+.cabecera{font-family:var(--cinzel);letter-spacing:.3em;font-size:19px;color:var(--oro)}
+.nombre{font-family:var(--script);font-size:86px;line-height:1.05;color:var(--oro);text-shadow:0 2px 12px rgba(0,0,0,.6)}
+h2{font-family:var(--script);font-weight:400;font-size:44px;color:var(--oro);line-height:1.2;margin-bottom:12px}
+p{margin:10px 0}
+.mayus{font-family:var(--cinzel);font-size:14px;letter-spacing:.14em;line-height:1.9;text-transform:uppercase}
+.script2{font-family:var(--script);font-size:32px;color:var(--oro)}
+.div{display:flex;align-items:center;justify-content:center;gap:12px;margin:26px auto;max-width:300px;color:var(--oro)}
+.div::before,.div::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--oro))}
+.div::after{transform:scaleX(-1)}
+.div span{font-size:18px}
+
+/* portada */
+.portada{padding:0}
+.foto{position:relative;line-height:0}
+.foto img{width:100%;display:block;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent);mask-image:linear-gradient(180deg,#000 80%,transparent)}
+.cartel{position:absolute;left:4.7%;top:1%;width:11.7%;height:32%;display:flex;align-items:center;justify-content:center;
+  writing-mode:vertical-rl;font-family:'Noto Serif SC',serif;font-size:clamp(16px,6vw,30px);color:var(--oro);letter-spacing:.25em;text-shadow:0 1px 3px #000}
+.portada .texto{padding:0 28px 40px;margin-top:-30px;position:relative}
+
+/* listones vino tinto */
+.liston{height:46px;position:relative;margin:0 -1px;background:
+  linear-gradient(180deg,#2a0409,#7a1424 20%,#5a0e1a 50%,#7a1424 80%,#2a0409);
+  border-top:2px solid var(--oro-osc);border-bottom:2px solid var(--oro-osc);box-shadow:0 4px 12px rgba(0,0,0,.5)}
+.liston::before{content:"";position:absolute;inset:6px 0;border-top:1px dashed rgba(224,184,120,.55);border-bottom:1px dashed rgba(224,184,120,.55)}
+.liston::after{content:"❀";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;color:var(--oro);
+  background:#5a0e1a;padding:0 14px;border-radius:20px}
+
+/* fecha + cuenta + calendario */
+.fecha-box{border:1px solid var(--oro-osc);outline:1px solid rgba(224,184,120,.25);outline-offset:6px;padding:34px 16px;border-radius:4px;
+  background:linear-gradient(180deg,rgba(107,18,32,.35),rgba(42,4,9,.2))}
+.fecha-top{display:flex;align-items:center;justify-content:center;gap:18px;margin:10px 0}
+.fecha-top .dia{font-family:var(--script);font-size:78px;line-height:1;color:var(--oro)}
+.fecha-top .lado{font-family:var(--cinzel);font-size:13px;letter-spacing:.22em;border-top:1px solid var(--oro-osc);border-bottom:1px solid var(--oro-osc);padding:6px 0;min-width:96px}
+.cuenta{display:flex;justify-content:center;gap:10px;margin:14px 0 4px}
+.cuenta div{min-width:64px;padding:10px 4px;border:1px solid var(--oro-osc);border-radius:4px;background:rgba(0,0,0,.25)}
+.cuenta b{display:block;font-family:var(--cinzel);font-size:30px;color:var(--oro);font-weight:600;line-height:1.1}
+.cuenta small{font-family:var(--cinzel);font-size:9px;letter-spacing:.2em;color:var(--crema)}
+.cal{margin:12px auto 0;max-width:340px;border-collapse:collapse;width:100%}
+.cal th{font-family:var(--cinzel);font-size:11px;letter-spacing:.1em;color:var(--oro);padding:8px 0;font-weight:400;border-bottom:1px solid var(--oro-osc)}
+.cal td{padding:9px 0;font-size:17px;position:relative}
+.cal td.hoy{color:#fff;font-weight:600;z-index:1}
+.cal td.hoy::before{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,#b01e34,#7a1424);border:1px solid var(--oro);z-index:-1;animation:latido 2s infinite}
+@keyframes latido{50%{box-shadow:0 0 14px 3px rgba(224,184,120,.6)}}
+.hora{font-family:var(--cinzel);letter-spacing:.2em;color:var(--oro);margin-top:20px}
+
+/* botones */
+.btn{display:inline-block;margin-top:14px;padding:13px 30px;border-radius:30px;border:1px solid var(--oro);background:linear-gradient(180deg,#8a5a2a,#5e3a18);
+  color:var(--crema);font-family:var(--cinzel);font-size:13px;letter-spacing:.2em;text-decoration:none;text-transform:uppercase;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.5)}
+.btn.sec{background:transparent;color:var(--oro)}
+.btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.icono{font-size:34px;color:var(--oro)}
+.versiculo{font-size:23px;font-style:italic;line-height:1.7;max-width:380px;margin:0 auto}
+.cita{font-family:var(--cinzel);font-size:13px;letter-spacing:.25em;color:var(--oro);margin-top:14px}
+
+/* confirmación */
+.conf label{display:block;font-family:var(--cinzel);font-size:12px;letter-spacing:.2em;margin:18px 0 8px;color:var(--oro)}
+.conf select{background:#2a0409;color:var(--crema);border:1px solid var(--oro);border-radius:4px;padding:10px 14px;font-family:var(--serif);font-size:18px;min-width:200px;text-align:center}
+.conf .acciones{display:flex;flex-direction:column;align-items:center;gap:4px}
+.aviso{font-size:15px;font-style:italic;color:#e9cfa0;margin-top:14px}
+.final{padding:0 0 0}
+.final .foto img{-webkit-mask-image:linear-gradient(180deg,transparent,#000 14%);mask-image:linear-gradient(180deg,transparent,#000 14%)}
+footer{padding:20px;text-align:center;font-family:var(--cinzel);font-size:11px;letter-spacing:.2em;color:var(--oro-osc);background:#1c0206}
+#btnMusica{position:fixed;top:14px;right:14px;z-index:200;width:44px;height:44px;border-radius:50%;
+  border:1px solid var(--oro);background:rgba(42,4,9,.85);color:var(--oro);font-size:20px;cursor:pointer;
+  display:none;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+#btnMusica.visible{display:flex}
+#btnMusica:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.texto-elegante{font-family:'Cormorant Garamond',serif;font-size:21px;line-height:1.85;font-style:italic;
+  text-transform:none;letter-spacing:.01em;color:var(--crema);max-width:380px;margin:10px auto}
+.bendicion{font-family:var(--cinzel);font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--oro);margin:34px 0 10px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="petalos" aria-hidden="true"></canvas>
+<audio id="musica" src="musica.mp3" loop preload="none"></audio>
+<button id="btnMusica" type="button" aria-label="Silenciar música" title="Silenciar música">
+  <svg id="icoSuena" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e0b878" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M9 18V6l10-2v12"/>
+    <circle cx="6.5" cy="18" r="2.5"/>
+    <circle cx="16.5" cy="16" r="2.5"/>
+  </svg>
+  <svg id="icoMudo" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e0b878" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display:none">
+    <path d="M9 18V6l10-2v12"/>
+    <circle cx="6.5" cy="18" r="2.5"/>
+    <circle cx="16.5" cy="16" r="2.5"/>
+    <line x1="3" y1="3" x2="21" y2="21"/>
+  </svg>
+</button>
+
+<!-- SOBRE -->
+<div id="intro">
+  <div class="sobre" id="sobre" role="button" tabindex="0" aria-label="Abrir invitación">
+    <div class="cuerpo"></div>
+    <div class="carta"></div>
+    <div class="tapa"></div>
+    <div class="sello">S</div>
+  </div>
+  <div class="clic">TOCA EL SELLO PARA ABRIR</div>
+  <div class="pergamino">
+    <small>Invitación para</small>
+    <div class="fam" id="famNombre">Querida familia</div>
+    <div class="pases" id="famPases"></div>
+  </div>
+</div>
+
+<main>
+  <!-- PORTADA -->
+  <section class="portada">
+    <div class="foto">
+      <img src="Portada.jpeg" alt="Sophia junto a su caballo al atardecer">
+      <div class="cartel" aria-hidden="true">花木蘭</div>
+    </div>
+    <div class="texto">
+      <div class="cabecera">MIS XV AÑOS</div>
+      <div class="nombre">Sophia</div>
+      <div class="div"><span>❀</span></div>
+      <p class="texto-elegante">Hay momentos en la vida que se convierten en recuerdos para el alma, y hoy mi corazón se llena de emoción al comenzar una de las etapas más hermosas de mi historia.
+<br>Quince años de sueños, aprendizajes y bendiciones que solo Dios ha hecho posibles. Hoy dejo florecer mis ilusiones, con la valentía de abrazar nuevos caminos y la certeza de que Su amor será siempre mi guía, Su palabra mi luz y Su presencia mi mayor fortaleza.
+<br>Con el corazón lleno de gratitud, quiero celebrar este día tan especial, dando gracias a Dios por el regalo de la vida y por permitirme compartir esta hermosa historia con las personas que amo.</p>
+      <p class="bendicion">Con la bendición de mis padres</p>
+      <p class="script2" style="margin-top:18px">David Arcos<br>&amp; Sandra Cuaspa</p>
+      <p class="mayus">Me encantaría compartir contigo este día tan especial.</p>
+    </div>
+  </section>
+
+  <div class="liston"></div>
+ 
+  <!-- FECHA -->
+  <section>
+    <div class="fecha-box">
+      <div class="cabecera" style="font-size:14px">SÁBADO</div>
+      <div class="fecha-top">
+        <div class="lado">NOVIEMBRE</div>
+        <div class="dia">21</div>
+        <div class="lado">2026</div>
+      </div>
+      <h2 style="font-size:36px;margin-top:20px">Faltan</h2>
+      <div class="cuenta" id="cuenta">
+        <div><b id="cd">00</b><small>DÍAS</small></div>
+        <div><b id="ch">00</b><small>HORAS</small></div>
+        <div><b id="cm">00</b><small>MIN</small></div>
+        <div><b id="cs">00</b><small>SEG</small></div>
+      </div>
+      <h2 style="margin-top:34px">El gran día</h2>
+      <div class="script2" style="font-size:30px">Noviembre</div>
+      <table class="cal" id="cal" aria-label="Calendario de noviembre 2026"></table>
+      
+    </div>
+  </section>
+
+  <div class="liston"></div>
+
+  <!-- LUGAR -->
+  <section>
+    <div class="icono">⌂</div>
+    <h2>Cena</h2>
+    <p class="mayus">Restaurante<br>Asaditos 74 </p>
+    <div class="hora">7:00 PM</div>
+    <a class="btn" href="https://maps.app.goo.gl/qZS2TuxLc8f6DG9U7" target="_blank" rel="noopener">Ver ubicación</a>
+    <div class="div"><span>❀</span></div>
+    <p class="versiculo">“Lámpara es a mis pies tu palabra, Y lumbrera a mi camino.”</p>
+    <div class="cita">Salmos 119:105</div>
+    <div class="div"><span>❀</span></div>
+    <h2>Código de vestimenta</h2>
+    <p class="mayus" style="font-size:13px">Etiqueta</p>
+    <p class="mayus" style="font-size:12px;margin-top:14px">Con mucho cariño les pedimos evitar el tono vino tinto y plateado. Ya que está reservado especialmente para la quinceañera. </p>
+    <div class="div"><span>❀</span></div>
+    <div class="icono">
+  <svg width="54" height="54" viewBox="0 0 64 64" fill="none" stroke="#e0b878" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="10" y="26" width="44" height="30" rx="2"/>
+    <rect x="7" y="18" width="50" height="8" rx="2"/>
+    <line x1="32" y1="18" x2="32" y2="56"/>
+    <path d="M32 18c-4-10-16-10-14-3 1.5 5 10 3 14 3z"/>
+    <path d="M32 18c4-10 16-10 14-3-1.5 5-10 3-14 3z"/>
+  </svg>
+</div>
+    <h2>Lluvia de Sobres</h2>
+    <p class="mayus" style="font-size:13px">Lo más importante para mí es contar con tu presencia, pero si deseas darme un obsequio será bienvenido. </p>
+    <div class="div"><span>♡</span></div>
+    <p class="mayus" style="font-size:13px">¡Gracias por compartir este momento tan especial conmigo!</p>
+  </section>
+
+
+  <div class="liston"></div>
+
+  <!-- CONFIRMACIÓN -->
+  <section class="conf">
+    <div class="icono">✉</div>
+    <h2>Confirmación</h2>
+    <p class="mayus" style="font-size:13px">Para tener una mejor organización, te agradeceré confirmar tu asistencia antes del 15 de noviembre de 2026.</p>
+    <p class="script2" id="confFam" style="margin-top:14px"></p>
+    <label for="selPases" id="lblPases">¿CUÁNTAS PERSONAS ASISTIRÁN?</label>
+    <select id="selPases"></select>
+    <p class="aviso" id="avisoPases"></p>
+    <div class="acciones">
+      <button class="btn" id="btnSi" type="button">Confirmar asistencia</button>
+      <button class="btn sec" id="btnNo" type="button">No podré asistir</button>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="script2" style="font-size:44px;margin-bottom:6px">¡Te esperamos!</div>
+    <p style="font-style:italic">Tú presencia y alegria hará que esta noche sea inolvidable</p>
+    <div class="foto" style="margin-top:24px"><img src="Final.jpeg" alt="Sophia en un bote entre flores al atardecer"></div>
+  </section>
+  <footer>SOPHIA · XV AÑOS · 21.11.2026</footer>
+</main>
+
+<script>
+/* ============ CONFIGURACIÓN  ============ */
+const WHATSAPP = "573188146612";            // 
+const FECHA_FIESTA = new Date(2026, 10, 21, 19, 0, 0); // 21 nov 2026, 7:00 PM
+/* Cada familia: clave (para el link) -> nombre que se muestra y pases.
+   Link de cada familia:  https://TU-SITIO/?f=clave                        */
+const FAMILIAS = {
+  tulio:   { nombre: "Servio Tulio Champutis y esposa", pases: 2 },
+  manuel: { nombre: "Manuel Fuertes y flia", pases: 3 },
+  jose:  { nombre: "José Antonio Cuaspa", pases: 1 },
+  mary: { nombre: "Mary Arcos Guerrero", pases: 1 },
+  dario: { nombre: "Dario Arcos Guerrero e hijo", pases: 2 },
+  gabriel: { nombre: "Gabriel Arcos Guerrero y flia", pases: 4 },
+  efrain: { nombre: "Efrain Arcos Guerrero y flia", pases: 5},
+  santiago: { nombre: "Santiago Arcos", pases: 1 },
+  anderson: { nombre: "Anderson Santiago Narvaez", pases: 1 },
+  nidia: { nombre: "Nidia Estefania Cuaspud", pases: 2 },
+  damaris: { nombre: "Damaris Cuasquer", pases: 1 }, 
+  danna: { nombre: "Danna Tutalchala", pases: 1 },
+  anahi: { nombre: "Anahí Santacruz", pases: 2 },
+  miguel: { nombre: "Miguel Angel Rosero y esposa", pases: 3 }, 
+  marco: { nombre: "Marco Reina y flia", pases: 5 },
+  yamile: { nombre: "Yamile Riveros", pases: 1 },
+  janeth: { nombre: "Janeth Vivas e hija", pases: 2 },
+  victor: { nombre: "Victor Obando y flia", pases: 3 },
+  adriana: { nombre: "Adriana Chamorro e hijos", pases: 3 },
+  eduardo: { nombre: "Luis Eduardo La torre y flia", pases: 4 },
+  servio: {nombre: "Servio Dorado y flia", pases: 5 },
+  marcelo: { nombre: "Marcelo Cuaspa y flia", pases: 4 },
+  ricardo: { nombre: "Ricardo Fajardo y esposa", pases: 2 }
+
+};
+/* ====================================================== */
+
+const clave = (new URLSearchParams(location.search).get("f") || "").toLowerCase();
+const fam = FAMILIAS[clave] || null;
+const $ = id => document.getElementById(id);
+
+/* Sobre + pergamino */
+if (fam) {
+  $("famNombre").textContent = fam.nombre;
+  $("famPases").textContent = fam.pases + (fam.pases === 1 ? " pase reservado" : " pases reservados");
+  $("confFam").textContent = fam.nombre;
+} else {
+  $("famNombre").textContent = "Querido invitado";
+  $("famPases").textContent = "Te esperamos con mucho cariño";
+}
+function abrir(){
+  $("sobre").classList.add("abierto");
+  const m = $("musica"); m.volume = .6; m.play().catch(()=>{});
+  btnMusica.classList.add("visible");
+  setTimeout(()=> $("intro").classList.add("oculto"), 1500);
+  setTimeout(()=> $("intro").style.display="none", 2800);
+}
+$("sobre").addEventListener("click", abrir);
+$("sobre").addEventListener("keydown", e => { if(e.key==="Enter"||e.key===" ") abrir(); });
+
+/* Botón silenciar música */
+const btnMusica = $("btnMusica");
+btnMusica.addEventListener("click", () => {
+  const m = $("musica");
+  m.muted = !m.muted;
+  $("icoSuena").style.display = m.muted ? "none" : "block";
+  $("icoMudo").style.display = m.muted ? "block" : "none";
+  btnMusica.setAttribute("aria-label", m.muted ? "Activar música" : "Silenciar música");
+});
+
+/* Cuenta regresiva */
+function tick(){
+  let d = Math.max(0, FECHA_FIESTA - new Date()), s = Math.floor(d/1000);
+  const p = n => String(n).padStart(2,"0");
+  $("cd").textContent = p(Math.floor(s/86400));
+  $("ch").textContent = p(Math.floor(s%86400/3600));
+  $("cm").textContent = p(Math.floor(s%3600/60));
+  $("cs").textContent = p(s%60);
+}
+tick(); setInterval(tick, 1000);
+
+/* Calendario noviembre 2026 (semana inicia en lunes) */
+(function(){
+  const y = 2026, m = 10, dias = new Date(y, m+1, 0).getDate();
+  const ini = (new Date(y, m, 1).getDay() + 6) % 7;
+  let h = "<tr>" + ["LUN","MAR","MIE","JUE","VIE","SAB","DOM"].map(d=>`<th>${d}</th>`).join("") + "</tr><tr>";
+  for(let i=0;i<ini;i++) h += "<td></td>";
+  for(let d=1; d<=dias; d++){
+    h += `<td class="${d===21?"hoy":""}">${d}</td>`;
+    if((ini+d)%7===0 && d<dias) h += "</tr><tr>";
+  }
+  $("cal").innerHTML = h + "</tr>";
+})();
+
+/* Confirmación por WhatsApp (límite de pases por familia) */
+const sel = $("selPases"), max = fam ? fam.pases : 1;
+for(let i=1;i<=max;i++){ const o=document.createElement("option"); o.value=i; o.textContent=i+(i===1?" persona":" personas"); sel.appendChild(o); }
+sel.value = max;
+$("avisoPases").textContent = fam ? `Tienes ${max} ${max===1?"pase reservado":"pases reservados"}.` : "Abre el link personal que te enviamos para confirmar.";
+function enviar(texto){
+  window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(texto)}`, "_blank");
+}
+$("btnSi").addEventListener("click", () => {
+  if(!fam){ alert("Por favor abre el link personal que te enviamos para poder confirmar."); return; }
+  const n = Math.min(parseInt(sel.value,10), fam.pases);
+  enviar(`Hola, confirmamos asistencia a los XV años de Sophia.\nFamilia: ${fam.nombre}\nAsistirán: ${n} de ${fam.pases} ${fam.pases===1?"pase":"pases"}.`);
+});
+$("btnNo").addEventListener("click", () => {
+  if(!fam){ alert("Por favor abre el link personal que te enviamos para poder responder."); return; }
+  enviar(`Hola, lamentablemente no podremos asistir a los XV años de Sophia.\nFamilia: ${fam.nombre}\nGracias por la invitación.`);
+});
+
+/* Pétalos cayendo en toda la invitación */
+(function(){
+  const c = $("petalos"), x = c.getContext("2d");
+  let W, H, ps = [];
+  const cols = ["#f8a9b8","#f27c94","#ffc2cf","#e85d7b","#ffd9e0"];
+  function size(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+  addEventListener("resize", size); size();
+  const nuevo = (arriba) => ({
+    x: Math.random()*W, y: arriba ? -20 : Math.random()*H,
+    r: 6 + Math.random()*9, v: .6 + Math.random()*1.1, a: Math.random()*6.28, va: (Math.random()-.5)*.03,
+    ph: Math.random()*6.28, sw: .4 + Math.random()*.9, col: cols[Math.floor(Math.random()*cols.length)], o: .55 + Math.random()*.4
+  });
+  const N = innerWidth < 600 ? 28 : 50;
+  for(let i=0;i<N;i++) ps.push(nuevo(false));
+  function petalo(p){
+    x.save(); x.translate(p.x,p.y); x.rotate(p.a); x.scale(1, .55 + .45*Math.abs(Math.sin(p.ph)));
+    x.globalAlpha = p.o; x.fillStyle = p.col; x.beginPath();
+    x.moveTo(0,-p.r); x.bezierCurveTo(p.r*.9,-p.r*.6, p.r*.8,p.r*.7, 0,p.r);
+    x.bezierCurveTo(-p.r*.8,p.r*.7, -p.r*.9,-p.r*.6, 0,-p.r); x.fill(); x.restore();
+  }
+  (function loop(){
+    x.clearRect(0,0,W,H);
+    ps.forEach((p,i) => {
+      p.y += p.v; p.ph += .03; p.a += p.va; p.x += Math.sin(p.ph)*p.sw;
+      if(p.y > H+20 || p.x < -30 || p.x > W+30) ps[i] = nuevo(true);
+      petalo(p);
+    });
+    requestAnimationFrame(loop);
+  })();
+})();
+</script>
+</body>
+</html>
